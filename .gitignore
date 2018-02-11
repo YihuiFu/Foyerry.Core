@@ -1,0 +1,17 @@
+/Foyerry.Core.Lucene/bin/Debug
+/Foyerry.Core.Lucene/obj/Debug
+/Foyerry.Core.DesignPattern/bin/Debug
+/Foyerry.Core.SignalR/bin
+/Foyerry.Core.DesignPattern/obj/Debug
+/Foyerry.Core.SignalR/obj/Debug
+/Foyerry.Core.Tests/bin/Debug
+/Foyerry.Core.Tests/obj/Debug
+/Foyerry.Core/bin/Debug
+/Foyerry.Core/obj/Debug
+/.vs/Foyerry.Core/v15/Server/sqlite3
+/.vs/config
+/packages/MySql.Data.6.10.6/contentFiles/any/net452
+/packages/MySql.Data.6.10.6/contentFiles/any/netcoreapp2.0
+/packages/MySql.Data.6.10.6/contentFiles/any/netstandard1.3
+/packages/MySql.Data.6.10.6/contentFiles/any/netstandard2.0
+/packages/MySql.Data.6.10.6/content

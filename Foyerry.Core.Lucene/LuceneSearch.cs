@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using log4net;
 using Lucene.Net.Analysis;
 using Lucene.Net.Documents;
 using Lucene.Net.Index;
@@ -12,6 +13,8 @@ namespace Foyerry.Core.Lucene
 {
     public class LuceneSearch : ILuceneSearch
     {
+        private static ILog log = LogManager.GetLogger(typeof(LuceneSearch));
+        private Queue<int> queue = new Queue<int>();
         private Analyzer _analyzer { get; set; }
         private Directory _directory { get; set; }
 
