@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Foyerry.Core.Quartz;
 
 namespace Foyerry.Core.Tests
 {
@@ -9,6 +10,9 @@ namespace Foyerry.Core.Tests
     {
         static void Main(string[] args)
         {
+            new QuartzJob().Start();
+
+            FoyerryCoreQuartzTests.Add();
         }
     }
 }

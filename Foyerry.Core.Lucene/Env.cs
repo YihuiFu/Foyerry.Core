@@ -7,7 +7,7 @@ namespace Foyerry.Core.Lucene
 {
     public class Env
     {
-        public const string IndexPath = "";
+        public const string IndexPath = @"D:/ACG_News";
     }
 
     public enum AnalyzerType
