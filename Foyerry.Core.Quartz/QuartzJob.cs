@@ -31,7 +31,7 @@ namespace Foyerry.Core.Quartz
         {
             try
             {
-                var type = DynamicCreateType(action);
+                var type = DynamicJob.CreateType(action);
                 IJobDetail jobDetail = JobBuilder.Create(type).Build();
                 var trigger = TriggerBuilder.Create()
                     .StartAt(DateTimeOffset.Now.Add(delay))
@@ -71,10 +71,10 @@ namespace Foyerry.Core.Quartz
             catch (Exception e)
             {
             }
-           
+
         }
 
-        private static Type DynamicCreateType(Action action)
+        public static Type DynamicCreateType(Action action)
         {
             //动态创建程序集
             AssemblyName assemblyName = new AssemblyName("");
@@ -95,7 +95,7 @@ namespace Foyerry.Core.Quartz
             public static readonly ConcurrentDictionary<string, JobAction> JobActions
                 = new ConcurrentDictionary<string, JobAction>();
 
-            private static Type CreateType(Action action)
+            public static Type CreateType(Action action)
             {
                 //动态创建程序集
                 AssemblyName assemblyName = new AssemblyName("Assembly_" + Guid.NewGuid().ToString());
@@ -107,7 +107,7 @@ namespace Foyerry.Core.Quartz
                 var typeName = string.Format("Type_" + Guid.NewGuid().ToString());
                 TypeBuilder typeBuilder = moduleBuilder.DefineType(typeName);
                 //添加父类(IJob)
-                typeBuilder.SetParent(typeof(DynamicJob));
+                typeBuilder.SetParent(typeof(JobBase));
                 var jobAction = new JobAction
                 {
                     Action = action,
@@ -132,6 +132,10 @@ namespace Foyerry.Core.Quartz
 
         public class JobBase : IJob
         {
+            public JobBase()
+            {
+            }
+
             public void Execute(IJobExecutionContext context)
             {
                 try
